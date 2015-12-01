@@ -8,7 +8,7 @@ import java.util.*;
  * Date:        1-12-2015
  * API:         http://dreambot.org/javadocs/
  */
-public class NodeManager {
+public class NodeManager implements Comparator<ParentNode> {
 
     //Our list of parents currently present in the manager
     List<ParentNode> parentList;
@@ -78,4 +78,8 @@ public class NodeManager {
         return LOOP_SLEEP;
     }
 
+    @Override
+    public int compare(ParentNode o1, ParentNode o2) {
+        return o1.priority() - o2.priority();
+    }
 }
